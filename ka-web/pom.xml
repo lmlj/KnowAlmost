@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ka</artifactId>
@@ -11,6 +11,69 @@
     <packaging>war</packaging>
 
     <artifactId>ka-web</artifactId>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <configPath>profile/dev</configPath>
+            </properties>
+            <build>
+                <filters>
+                    <filter>profile/dev/dev.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>profile/dev</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!--<profile>-->
+        <!--<id>production</id>-->
+        <!--<properties>-->
+        <!--<configPath>src/main/resources/config/production</configPath>-->
+        <!--</properties>-->
+        <!--<build>-->
+        <!--<filters>-->
+        <!--<filter>src/main/resources/profile/production.properties</filter>-->
+        <!--</filters>-->
+        <!--<resources>-->
+        <!--<resource>-->
+        <!--<directory>src/main/resources</directory>-->
+        <!--<filtering>true</filtering>-->
+        <!--</resource>-->
+        <!--<resource>-->
+        <!--<directory>src/main/resources/config/production</directory>-->
+        <!--<filtering>true</filtering>-->
+        <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-war-plugin</artifactId>-->
+        <!--<version>2.1.1</version>-->
+        <!--</plugin>-->
+        <!--</plugins>-->
+        <!--</build>-->
+        <!--</profile>-->
+    </profiles>
 
     <build>
         <plugins>
@@ -32,7 +95,7 @@
                 <configuration>
                     <port>80</port>
                     <path>/</path>
-                    <!--<url>http://pddn.qileroro.com</url>-->
+                    <url>http://ka.com</url>
                     <uriEncoding>utf-8</uriEncoding>
                     <systemProperties>
                         <dev>true</dev>
