@@ -1,1 +1,8 @@
-this is knowAlmost project.
+## 介绍
+此为练习项目之一，仿知乎应用
+
+### 结构
+前后端分离，SPA应用
+
+### 前端
+前端代码在app目录下，选用React+Mobx+Antd进行开发

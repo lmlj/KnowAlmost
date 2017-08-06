@@ -36,3 +36,8 @@ rebel.xml
 *.log
 /logs/*
 /logs2/*
+
+app/public/
+app/build/
+node_modules/
+.vscode/
