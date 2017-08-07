@@ -13,14 +13,21 @@
 `npm i cross-env autoprefixer rucksack-css -D`
 
 #### webpack
-`npm i webpack webpack-dev-server -D`
-`npm i sass-loader node-sass postcss-loader style-loader extract-text-webpack-plugin happypack -D`
+```
+npm i webpack webpack-dev-server -D
+npm i sass-loader node-sass postcss-loader style-loader extract-text-webpack-plugin happypack -D
+```
 
 #### babel
-`npm i babel-core babel-eslint babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 -D`
+```
+npm i babel-core babel-eslint babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 -D
+```
 
 #### eslint
-`npm i eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react -D`
+```
+npm i eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react -D
+```
+
 > eslint-config-airbnb是eslint的3种配置包之一，有Google标准、Airbnb标准和Standard标准
 > eslint-config-airbnb此外还需要eslint-plugin-import、eslint-plugin-jsx-a11y两个Airbnb标准必需包
 
