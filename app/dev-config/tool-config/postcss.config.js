@@ -2,6 +2,7 @@
 
 module.exports = ctx => ({
   plugins: {
+    rucksack: true,
     cssnano: {
       preset: 'default',
     },

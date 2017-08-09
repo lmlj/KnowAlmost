@@ -6,6 +6,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
+const Visualizer = require('webpack-visualizer-plugin');
+const HappyPack = require('happypack');
+
 const path = require('path');
 const apps = require('../apps.config').apps;
 
@@ -23,6 +26,14 @@ exports.commonPlugins = [
     },
     // 判断当前是否处于开发状态
     __DEV__: JSON.stringify(__DEV__),
+  }),
+  new HappyPack({
+    id: 'babel',
+    threads: 6,
+    loaders: ['babel-loader'],
+  }),
+  new Visualizer({
+    filename: './statistics.html',
   }),
 ];
 
