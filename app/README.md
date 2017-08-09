@@ -41,6 +41,7 @@
 - prepack-webpack-plugin
 - webpack-visualizer-plugin(生成文件展示引用模块占比)
 - extract-text-webpack-plugin(提取css样式)）
+- underscore-template-loader(模板导入加载器)
 - happypack(加速代码构建)
 
 #### babel
