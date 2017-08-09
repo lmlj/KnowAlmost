@@ -3,26 +3,61 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "watch": "rm -rf public && webpack --progress --color -w -d",
-    "watchDev": "rm -rf public && cross-env serverEnv=dev webpack --progress --color -w -d",
-    "analysis": "webpack --progress -p --json --profile > analysis.json",
-    "build": "rm -rf public  && cross-env NODE_ENV=production webpack --progress --color -p",
-    "buildDev": "rm -rf public  && cross-env NODE_ENV=production serverEnv=dev webpack --progress --color -p"
+    "start": "better-npm-run start:dll && better-npm-run start:dev",
+    "build": "npm run clean && better-npm-run build",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "update": "npm-check -u"
+  },
+  "betterScripts": {
+    "start:dll": {
+      "command": "webpack --config ./dev-config/webpack.dll.config.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "start:dev": {
+      "command": "webpack-dashboard -- node --harmony ./dev-config/webpack.devServer.config.js --host 0.0.0.0",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "webpack --config ./dev-config/webpack.config.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "./dev-config/tool-config/.eslintrc.yml"
+  },
+  "babel": {
+    "extends": "./dev-config/tool-config/.babelrc"
   },
   "dependencies": {
-    "antd": "^2.12.3",
+    "antd": "^2.12.5",
     "classnames": "^2.2.5",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router": "^4.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-async-to-promises": "^1.0.5",
+    "babel-plugin-import": "^1.3.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.24.1",
+    "better-npm-run": "^0.1.0",
     "cross-env": "^5.0.3",
     "eslint": "^4.4.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -30,13 +65,20 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
+    "fs-extra": "^4.0.1",
     "happypack": "^4.0.0-beta.2",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
+    "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.6",
+    "prepack-webpack-plugin": "^1.1.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "rucksack-css": "^1.0.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
+    "webpack": "^3.5.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.6.1"
   }
 }

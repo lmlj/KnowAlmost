@@ -15,7 +15,8 @@
 #### webpack
 ```
 npm i webpack webpack-dev-server -D
-npm i sass-loader node-sass postcss-loader style-loader extract-text-webpack-plugin happypack -D
+npm i sass-loader node-sass postcss-loader style-loader react-hot-loader -D
+npm i html-webpack-plugin webpack-bundle-analyzer webpack-dashboard prepack-webpack-plugin extract-text-webpack-plugin -D
 ```
 
 #### babel

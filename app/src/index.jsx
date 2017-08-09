@@ -1,7 +1,6 @@
-import ReactDOM from 'react-dom';
+import React from 'react';
+import App from './containers/app';
+import render from './utils/render';
 
-ReactDOM.render((
-  <div>
-    <h1>hello world!</h1>
-  </div>
-), document.getElementById('app'));
+// 将组件渲染到DOM中
+render(<App />, document.getElementById('root'), './containers/App');
