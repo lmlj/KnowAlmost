@@ -6,11 +6,14 @@ const fs = require('fs-extra');
 const config = require('./webpack.config.js');
 const appsConfig = require('./apps.config.js');
 
+const port = appsConfig.devServer.port;
+const proxy = appsConfig.proxy;
+
 new WebpackDevServer(webpack(config), {
   // 设置 WebpackDevServer 的开发目录，默认为当前项目的根目录
   contentBase: path.join(__dirname, '../public'),
   publicPath: '/',
-  proxy: appsConfig.proxy,
+  proxy,
   // 其他配置项
   compress: true,
   hot: true,
@@ -19,7 +22,7 @@ new WebpackDevServer(webpack(config), {
   noInfo: true,
   stats: { colors: true },
   disableHostCheck: true,
-}).listen(appsConfig.devServer.port, '0.0.0.0', (err, result) => {
+}).listen(port, '0.0.0.0', (err) => {
   if (err) {
     return console.log(err);
   }
@@ -28,5 +31,5 @@ new WebpackDevServer(webpack(config), {
     path.resolve(__dirname, './page/dev.html'),
     path.resolve(__dirname, '../public/index.html')
   );
-  return console.log(`Listening at http://0.0.0.0:${appsConfig.devServer.port}/`);
+  return console.log(`Listening at http://0.0.0.0:${port}/`);
 });

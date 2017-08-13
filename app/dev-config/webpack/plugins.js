@@ -125,7 +125,7 @@ if (!__DEV__) {
       // 构造HTML页面
       htmlPages.push({
         filename: `${app.id}.html`,
-        // favicon: path.join(__dirname, 'assets/images/favicon.ico'),
+        favicon: path.join(__dirname, '../../src/images/favicon.ico'),
         template: `underscore-template-loader!${app.indexPage}`, // 默认使用underscore作为模板
         inject: false, // 使用自动插入JS脚本,
         chunks: ['vendor', app.id], // 选定需要插入的chunk名,
